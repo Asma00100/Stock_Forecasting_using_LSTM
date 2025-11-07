@@ -22,12 +22,12 @@ DB_PORT = int(os.getenv("DB_PORT", 3306))
 ALPHA_API_KEY = os.getenv("ALPHA_API_KEY")
 
 # ------------------ STREAMLIT CONFIG ------------------
-st.set_page_config(page_title=" AAPL Stock Forecast", layout="wide")
-st.title("AAPL Stock Price Forecast (Next 10 Days)")
+st.set_page_config(page_title="AAPL Stock Forecast", layout="wide")
+st.title("AAPL Stock Price Forecast (~Next Few Hours)")
 
 st.markdown("""
 This dashboard uses **5-minute interval live AAPL data (last 1 month)** stored in MySQL,
-trained with an **LSTM model**, and predicts the **next N periods**.
+trained with an **LSTM model**, and predicts the **next N periods (~next few hours)**.
 """)
 
 # ------------------ FETCH LIVE DATA ------------------
@@ -96,7 +96,7 @@ def update_mysql_with_live_data(connection, new_data):
 if 'refresh_trigger' not in st.session_state:
     st.session_state['refresh_trigger'] = 0  # counter to trigger rerun
 
-if st.button("🔄Refresh Live Data"):
+if st.button("🔄 Refresh Live Data"):
     connection = connect_db()
     new_data = fetch_live_data()
     if new_data is not None:
@@ -169,4 +169,4 @@ st.pyplot(fig)
 st.subheader("Forecasted Prices (Every 5 Minutes)")
 st.dataframe(forecast_df.style.format({"Predicted_Close": "{:.2f}"}))
 
-st.caption("🔁Auto-refresh every few minutes to keep data updated.")
+st.caption("🔁 Auto-refresh every few minutes to keep data updated.")
