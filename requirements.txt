@@ -1,0 +1,26 @@
+# --- Core Python Libraries ---
+pandas==2.2.3
+numpy==1.26.4
+
+# --- Data Fetching & Database ---
+requests==2.31.0          # for Alpha Vantage API requests
+yfinance==0.2.40
+pymysql==1.1.1
+python-dotenv==1.0.1      # for .env file support
+
+# --- Machine Learning & Deep Learning ---
+scikit-learn==1.5.2
+tensorflow==2.16.2
+joblib==1.4.2
+
+# --- Visualization ---
+matplotlib==3.9.2
+altair==5.3.0
+
+# --- Web App / Dashboard ---
+streamlit==1.39.0
+
+# --- Miscellaneous (compatibility & protobuf for TF) ---
+protobuf==4.25.3
+
+cryptography
